@@ -5,9 +5,10 @@ package ca.digitalcave.moss.osx;
 
 import java.lang.reflect.Method;
 
-import org.homeunix.thecave.moss.common.OperatingSystemUtil;
 import org.homeunix.thecave.moss.swing.MossFrame;
 import org.homeunix.thecave.moss.swing.MossMenuBar;
+
+import ca.digitalcave.moss.common.OperatingSystemUtil;
 
 /**
  * Wrapper around the Apple specific classes used to interface with Buddi. This
