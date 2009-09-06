@@ -1,7 +1,7 @@
 /*
  * Created on Sep 3, 2007 by wyatt
  */
-package org.homeunix.thecave.moss.osx;
+package ca.digitalcave.moss.osx;
 
 import java.awt.Dimension;
 import java.awt.Point;

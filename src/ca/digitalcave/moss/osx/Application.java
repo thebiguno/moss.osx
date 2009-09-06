@@ -1,7 +1,7 @@
 /*
  * Created on May 29, 2007 by wyatt
  */
-package org.homeunix.thecave.moss.osx;
+package ca.digitalcave.moss.osx;
 
 import java.lang.reflect.Method;
 

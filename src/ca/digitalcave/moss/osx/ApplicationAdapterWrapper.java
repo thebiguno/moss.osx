@@ -1,7 +1,7 @@
 /*
  * Created on Aug 10, 2007 by wyatt
  */
-package org.homeunix.thecave.moss.osx;
+package ca.digitalcave.moss.osx;
 
 import com.apple.eawt.ApplicationListener;
 

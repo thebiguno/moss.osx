@@ -1,7 +1,7 @@
 /*
  * Created on Aug 7, 2007 by wyatt
  */
-package org.homeunix.thecave.moss.osx;
+package ca.digitalcave.moss.osx;
 
 
 public class ApplicationAdapter  {
