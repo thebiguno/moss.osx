@@ -3,6 +3,7 @@
  */
 package ca.digitalcave.moss.osx;
 
+import java.awt.Image;
 import java.lang.reflect.Method;
 
 import org.homeunix.thecave.moss.swing.MossFrame;
@@ -177,5 +178,41 @@ public class Application {
 			return hiddenFrame;
 		}
 		return null;
+	}
+	
+	public void setDockIconImage(Image image){
+		try {
+			Method m = applicationClass.getMethod("setDockIconImage", new Class[] { Image.class });
+			m.invoke(application, new Object[] { image });
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+	}
+	
+	public void setDockIconBadge(Image image){
+		try {
+			Method m = applicationClass.getMethod("setDockIconBadge", new Class[] { Image.class });
+			m.invoke(application, new Object[] { image });
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+	}
+	
+	public void requestUserAttention(boolean flag){
+		try {
+			Method m = applicationClass.getMethod("requestUserAttention", new Class[] { boolean.class });
+			m.invoke(application, new Object[] { flag });
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+	}
+	
+	public void requestForeground(boolean flag){
+		try {
+			Method m = applicationClass.getMethod("requestForeground", new Class[] { boolean.class });
+			m.invoke(application, new Object[] { flag });
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
 	}
 }
