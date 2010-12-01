@@ -8,8 +8,8 @@ import java.awt.Point;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowFocusListener;
 
-import org.homeunix.thecave.moss.swing.MossFrame;
-import org.homeunix.thecave.moss.swing.exception.WindowOpenException;
+import ca.digitalcave.moss.swing.MossFrame;
+import ca.digitalcave.moss.swing.exception.WindowOpenException;
 
 public class HiddenMossFrame extends MossFrame {
 	public static final long serialVersionUID = 0;

@@ -8,10 +8,9 @@ import java.lang.reflect.Method;
 import java.util.Map;
 import java.util.WeakHashMap;
 
-import org.homeunix.thecave.moss.swing.MossFrame;
-import org.homeunix.thecave.moss.swing.MossMenuBar;
-
 import ca.digitalcave.moss.common.OperatingSystemUtil;
+import ca.digitalcave.moss.swing.MossFrame;
+import ca.digitalcave.moss.swing.MossMenuBar;
 
 /**
  * Wrapper around the Apple specific classes used to interface with Buddi. This
