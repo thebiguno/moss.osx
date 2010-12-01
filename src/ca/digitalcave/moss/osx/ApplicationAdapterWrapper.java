@@ -6,6 +6,7 @@ package ca.digitalcave.moss.osx;
 import com.apple.eawt.ApplicationListener;
 
 
+@SuppressWarnings("deprecation")
 class ApplicationAdapterWrapper implements ApplicationListener {
 
 	private ApplicationAdapter adapter;

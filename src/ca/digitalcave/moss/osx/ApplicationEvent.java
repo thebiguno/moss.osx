@@ -3,6 +3,7 @@
  */
 package ca.digitalcave.moss.osx;
 
+@SuppressWarnings("deprecation")
 public class ApplicationEvent {
 	private com.apple.eawt.ApplicationEvent event;
 
