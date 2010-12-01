@@ -5,6 +5,8 @@ package ca.digitalcave.moss.osx;
 
 import java.awt.Image;
 import java.lang.reflect.Method;
+import java.util.Map;
+import java.util.WeakHashMap;
 
 import org.homeunix.thecave.moss.swing.MossFrame;
 import org.homeunix.thecave.moss.swing.MossMenuBar;
@@ -29,6 +31,7 @@ public class Application {
 
 	private final Object application;
 	private final Class<?> applicationClass;
+	private final Map<ApplicationAdapter, ApplicationAdapterWrapper> applicationListeners = new WeakHashMap<ApplicationAdapter, ApplicationAdapterWrapper>();
 	private HiddenMossFrame hiddenFrame;
 
 	public static Application getApplication() {
@@ -61,7 +64,12 @@ public class Application {
 		try {
 			Class<?> applicationListenerClass = ClassLoader.getSystemClassLoader().loadClass("com.apple.eawt.ApplicationListener");
 			Method m = applicationClass.getMethod("addApplicationListener", new Class[] { applicationListenerClass });
-			m.invoke(application, new Object[] { new ApplicationAdapterWrapper(adapter) });
+			
+			if (applicationListeners.containsKey(adapter)) return;
+			
+			ApplicationAdapterWrapper applicationAdapter = new ApplicationAdapterWrapper(adapter);
+			m.invoke(application, new Object[] { applicationAdapter });
+			applicationListeners.put(adapter, applicationAdapter);
 		} catch (Exception e) {
 			throw new RuntimeException(e);
 		}
@@ -131,7 +139,11 @@ public class Application {
 		try {
 			Class<?> applicationListenerClass = ClassLoader.getSystemClassLoader().loadClass("com.apple.eawt.ApplicationListener");
 			Method m = applicationClass.getMethod("removeApplicationListener", new Class[] { applicationListenerClass });
-			m.invoke(application, new Object[] { new ApplicationAdapterWrapper(adapter) });
+			
+			ApplicationAdapterWrapper applicationAdapter = applicationListeners.remove(adapter);
+			if (applicationAdapter == null) return;
+			
+			m.invoke(application, new Object[] { applicationAdapter });
 		} catch (Exception e) {
 			throw new RuntimeException(e);
 		}
