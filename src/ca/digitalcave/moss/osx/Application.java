@@ -41,7 +41,7 @@ public class Application {
 		private static Application instance = new Application();
 	}
 	
-	static boolean isAppleExtensionsAvailable(){
+	public static boolean isAppleExtensionsAvailable(){
 		try {
 			ClassLoader.getSystemClassLoader().loadClass("com.apple.eawt.Application");
 			return true;
