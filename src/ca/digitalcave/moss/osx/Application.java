@@ -40,6 +40,17 @@ public class Application {
 	static class SingletonHolder {
 		private static Application instance = new Application();
 	}
+	
+	static boolean isAppleExtensionsAvailable(){
+		try {
+			ClassLoader.getSystemClassLoader().loadClass("com.apple.eawt.Application");
+			return true;
+		}
+		catch (ClassNotFoundException e) {
+			return false;
+		}
+
+	}
 
 	private Application() {
 		try {
